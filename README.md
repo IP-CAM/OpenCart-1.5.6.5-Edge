@@ -1,5 +1,6 @@
 # Opencart 1.5.6.5 Edge
 Full Opencart install package
+Engine from Opencart 1.5.6.5_rc - Bootstrap Theme from Opencart 2.0.3.1
 
 Features:
 ========
