@@ -180,7 +180,7 @@ class ControllerOpenbayAmazonProduct extends Controller {
 		$this->data['saved_listings_url'] = $this->url->link('openbay/amazon/savedListings', 'token=' . $this->session->data['token'], 'SSL');
 		$this->data['main_url'] = $this->url->link('openbay/amazon_product', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		$this->data['token'] = $this->session->data['token'];
-		$this->data['no_image'] = $this->model_tool_image->resize('no_image.jpg', 100, 100);
+		$this->data['no_image'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 		if($this->openbay->addonLoad('openstock')) {
 			$this->load->model('openstock/openstock');

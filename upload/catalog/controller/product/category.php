@@ -176,34 +176,24 @@ class ControllerProductCategory extends Controller {
 
 			$results = $this->model_catalog_category->getCategories($category_id);
 
-            // Refine search images
-			$this->data['oc2_theme_refine_search'] = '';
-            if($this->config->get('oc2_theme_refine')){
-              $refine_search_image = $this->config->get('oc2_theme_refine');
-              if( $refine_search_image['image_width'] &&  $refine_search_image['image_height'] ){
-				   $this->data['oc2_theme_refine_search'] = true;
-		      }
-	      	}
-
 			foreach ($results as $result) {
 				$data = array(
 					'filter_category_id'  => $result['category_id'],
 					'filter_sub_category' => true
 				);
 
-                    if(!$result['image']){
-            	        $result['image'] = 'no_image.jpg';
-                    }
-                    if( $this->config->get('config_image_refine_search_width') &&  $this->config->get('config_image_refine_search_heigth')){
-                    	$refine_search_image = $this->model_tool_image->resize( $result['image'],$this->config->get('config_image_refine_search_width'), $this->config->get('config_image_refine_search_heigth') );
-				    } else {
-				        $refine_search_image = '';
-				    }	
-				        $this->data['categories'][] = array(
-				        	                                'image' => $refine_search_image,
-					                                        'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($data) . ')' : ''),
-					                                        'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
-				                                      );
+            // Refine search images
+			if ($result['image']) {
+				$refine_search_image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_refine_search_width'), $this->config->get('config_image_refine_search_height'));
+			} else {
+				$refine_search_image = $this->model_tool_image->resize('placeholder.png', $this->config->get('config_image_refine_search_width'), $this->config->get('config_image_refine_search_height'));
+			}
+
+				$this->data['categories'][] = array(
+					'thumb' => $refine_search_image,
+					'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($data) . ')' : ''),
+					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+				);
 			}
 
 			$this->data['products'] = array();
@@ -225,7 +215,7 @@ class ControllerProductCategory extends Controller {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
 				} else {
-					$image = false;
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
 				}
 
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -389,7 +379,7 @@ class ControllerProductCategory extends Controller {
 			$pagination->url = $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url . '&page={page}');
 
 			$this->data['pagination'] = $pagination->render();
-                        $this->data['results'] = sprintf($this->language->get('text_pagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total, ceil($product_total / $limit));
+			$this->data['results'] = sprintf($this->language->get('text_pagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total, ceil($product_total / $limit));
 
 			$this->data['sort'] = $sort;
 			$this->data['order'] = $order;

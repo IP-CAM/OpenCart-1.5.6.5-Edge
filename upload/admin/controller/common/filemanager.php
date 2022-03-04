@@ -36,7 +36,7 @@ class ControllerCommonFileManager extends Controller {
 
 		$this->load->model('tool/image');
 
-		$this->data['no_image'] = $this->model_tool_image->resize('no_image.jpg', 100, 100);
+		$this->data['no_image'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 		if (isset($this->request->get['field'])) {
 			$this->data['field'] = $this->request->get['field'];

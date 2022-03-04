@@ -35,15 +35,11 @@
      <?php foreach ($categories as $category) { ?>
             
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-    <?php if($oc2_theme_refine_search){
-	$style = '  style="min-height:120px;"';
-    } else{
-       $style = '';
-    } ?>
-    <div class="product-thumb transition"<?php echo $style;?>>
+
+    <div class="product-thumb transition" style="min-height:120px;">
       <div class="image"><a href="<?php echo $category['href']; ?>">
-      <?php if(isset($category['image'])){?>
-      <img src="<?php echo $category['image']; ?>" alt="<?php echo $category['image']; ?>">
+      <?php if(isset($category['thumb'])){?>
+      <img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['thumb']; ?>">
       <?php } ?>
       <div style="width:100%;text-align:center;font-size:13px;font-weight:bold;"><?php echo $category['name']; ?></div></a></div>
        </div>

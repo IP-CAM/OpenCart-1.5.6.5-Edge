@@ -1323,7 +1323,7 @@ class ControllerOpenbayOpenbay extends Controller {
 					if ($product_image['image'] && file_exists(DIR_IMAGE . $product_image['image'])) {
 						$image = $product_image['image'];
 					} else {
-						$image = 'no_image.jpg';
+						$image = 'no_image.png';
 					}
 
 					$product_info['product_images'][] = array(
@@ -1364,7 +1364,7 @@ class ControllerOpenbayOpenbay extends Controller {
 					$this->data['error_warning'] = $this->language->get('lang_error_no_stock');
 				}
 
-				$this->data['no_image'] = $this->model_tool_image->resize('no_image.jpg', 100, 100);
+				$this->data['no_image'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 				$this->data['product'] = $product_info;
 
@@ -1410,7 +1410,7 @@ class ControllerOpenbayOpenbay extends Controller {
 								if ($prod['image'] && file_exists(DIR_IMAGE . $prod['image'])) {
 									$prod['image'] = $this->model_tool_image->resize($prod['image'], 80, 80);
 								} else {
-									$prod['image'] = $this->model_tool_image->resize('no_image.jpg', 80, 80);
+									$prod['image'] = $this->model_tool_image->resize('no_image.png', 80, 80);
 								}
 
 								$products[] = $prod;
