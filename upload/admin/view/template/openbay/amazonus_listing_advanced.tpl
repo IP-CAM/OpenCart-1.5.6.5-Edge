@@ -105,7 +105,7 @@ $(document).ready(function(){
         return;
     <?php } ?>
 
-    $(".fields_advanced :input").live('change', function() {
+    $(".fields_advanced :input").on('change', function() {
         update_form(this, 'advanced');
     });
 
@@ -621,7 +621,7 @@ var nodeBox = '';
 var nodeString = '';
 var nodeStringSimple = '';
 
-$('.browseNode').live('click', function(){
+$('.browseNode').on('click', function(){
     var html = '';
 
     nodeBox = $(this).attr("field_name");
@@ -667,7 +667,7 @@ $('.browseNode').live('click', function(){
     });
 });
 
-$('.nodeSelect').live('change', function(){
+$('.nodeSelect').on('change', function(){
     //called when the root node id is chosen
     var html = '';
     var node = $(this).val();

@@ -783,20 +783,20 @@
                         }
 
                         $('#suggested_cats').html(htmlInj);
-                        $('input[name=suggested]').bind('change', function(){
+                        $('input[name=suggested]').on('change', function(){
 
                         if($(this).val() != ''){
                             categorySuggestedChange($(this).val());
                         }
                     });
 
-                    $('.suggested_category').bind('click', function(){
+                    $('.suggested_category').on('click', function(){
                         $('#cSelectionsRow').hide();
                         $('input[name=popular]').removeAttr('checked');
                         $('#popular_default').prop('checked', true);
                     });
 
-                    $('#suggested_default').bind('click', function(){
+                    $('#suggested_default').on('click', function(){
                         $('#cSelectionsRow').show();
                         $('#showFeatureDiv').hide();
                         $('#showCatalogDiv').hide();
@@ -1520,13 +1520,13 @@
         $('#suggested_default').prop('checked', 'checked');
     });
 
-    $('input[name=popular]').bind('change', function(){
+    $('input[name=popular]').on('change', function(){
         if($(this).val() != ''){
             categoryFavChange($(this).val());
         }
     });
 
-    $('#allTemplateImages').bind('change', function(){
+    $('#allTemplateImages').on('change', function(){
         if($('#allTemplateImages').is(':checked')){
             $('.checkboxTemplateImage').prop('checked', 'checked');
         }else{
@@ -1534,7 +1534,7 @@
         }
     });
 
-    $('#allEbayImages').bind('change', function(){
+    $('#allEbayImages').on('change', function(){
         if($('#allEbayImages').is(':checked')){
             $('.checkboxEbayImage').prop('checked', 'checked');
         }else{
@@ -1542,7 +1542,7 @@
         }
     });
 
-    $('#shipping_in_desc').bind('change', function(){
+    $('#shipping_in_desc').on('change', function(){
         if($('#shipping_in_desc').is(':checked')){
             $('#shipping_table_rows').hide();
         }else{

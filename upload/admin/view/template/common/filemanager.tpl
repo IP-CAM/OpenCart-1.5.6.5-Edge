@@ -126,7 +126,7 @@ $(document).ready(function() {
 	 
 					};
 	 
-				jQuery(this).bind('scroll', handler).data(uid1, handler);
+				jQuery(this).on('scroll', handler).data(uid1, handler);
 			},
 			teardown: function(){
 				jQuery(this).unbind( 'scroll', jQuery(this).data(uid1) );
@@ -157,7 +157,7 @@ $(document).ready(function() {
 	 
 					};
 	 
-				jQuery(this).bind('scroll', handler).data(uid2, handler);
+				jQuery(this).on('scroll', handler).data(uid2, handler);
 	 
 			},
 			teardown: function() {
@@ -166,7 +166,7 @@ $(document).ready(function() {
 		};
 	})();
 	
-	$('#column-right').bind('scrollstop', function() {
+	$('#column-right').on('scrollstop', function() {
 		$('#column-right a').each(function(index, element) {
 			var height = $('#column-right').height();
 			var offset = $(element).offset();
@@ -259,7 +259,7 @@ $(document).ready(function() {
 		}
 	});	
 
-	$('#column-right a').live('click', function() {
+	$('#column-right a').on('click', function() {
 		if ($(this).attr('class') == 'selected') {
 			$(this).removeAttr('class');
 		} else {
@@ -269,7 +269,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('#column-right a').live('dblclick', function() {
+	$('#column-right a').on('dblclick', function() {
 		<?php if ($fckeditor) { ?>
 		window.opener.CKEDITOR.tools.callFunction(<?php echo $fckeditor; ?>, '<?php echo $directory; ?>' + $(this).find('input[name=\'image\']').attr('value'));
 		
@@ -282,7 +282,7 @@ $(document).ready(function() {
 		<?php } ?>
 	});		
 						
-	$('#create').bind('click', function() {
+	$('#create').on('click', function() {
 		var tree = $.tree.focused();
 		
 		if (tree.selected) {
@@ -299,7 +299,7 @@ $(document).ready(function() {
 				resizable: false
 			});	
 			
-			$('#dialog input[type=\'button\']').bind('click', function() {
+			$('#dialog input[type=\'button\']').on('click', function() {
 				$.ajax({
 					url: 'index.php?route=common/filemanager/create&token=<?php echo $token; ?>',
 					type: 'post',
@@ -326,7 +326,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('#delete').bind('click', function() {
+	$('#delete').on('click', function() {
 		path = $('#column-right a.selected').find('input[name=\'image\']').attr('value');
 							 
 		if (path) {
@@ -384,7 +384,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('#move').bind('click', function() {
+	$('#move').on('click', function() {
 		$('#dialog').remove();
 		
 		html  = '<div id="dialog">';
@@ -400,7 +400,7 @@ $(document).ready(function() {
 
 		$('#dialog select[name=\'to\']').load('index.php?route=common/filemanager/folders&token=<?php echo $token; ?>');
 		
-		$('#dialog input[type=\'button\']').bind('click', function() {
+		$('#dialog input[type=\'button\']').on('click', function() {
 			path = $('#column-right a.selected').find('input[name=\'image\']').attr('value');
 							 
 			if (path) {																
@@ -459,7 +459,7 @@ $(document).ready(function() {
 		});
 	});
 
-	$('#copy').bind('click', function() {
+	$('#copy').on('click', function() {
 		$('#dialog').remove();
 		
 		html  = '<div id="dialog">';
@@ -475,7 +475,7 @@ $(document).ready(function() {
 		
 		$('#dialog select[name=\'to\']').load('index.php?route=common/filemanager/folders&token=<?php echo $token; ?>');
 		
-		$('#dialog input[type=\'button\']').bind('click', function() {
+		$('#dialog input[type=\'button\']').on('click', function() {
 			path = $('#column-right a.selected').find('input[name=\'image\']').attr('value');
 							 
 			if (path) {																
@@ -534,7 +534,7 @@ $(document).ready(function() {
 		});	
 	});
 	
-	$('#rename').bind('click', function() {
+	$('#rename').on('click', function() {
 		$('#dialog').remove();
 		
 		html  = '<div id="dialog">';
@@ -548,7 +548,7 @@ $(document).ready(function() {
 			resizable: false
 		});
 		
-		$('#dialog input[type=\'button\']').bind('click', function() {
+		$('#dialog input[type=\'button\']').on('click', function() {
 			path = $('#column-right a.selected').find('input[name=\'image\']').attr('value');
 							 
 			if (path) {		
@@ -643,7 +643,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('#refresh').bind('click', function() {
+	$('#refresh').on('click', function() {
 		var tree = $.tree.focused();
 		
 		tree.refresh(tree.selected);

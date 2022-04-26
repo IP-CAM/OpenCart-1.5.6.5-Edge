@@ -398,7 +398,7 @@ function checkUnlinkedItems(){
     });
 }
 
-$(".localName:not(.ui-autocomplete-input)").live("focus", function (event) {
+$(".localName:not(.ui-autocomplete-input)").on("focus", function (event) {
     $(this).autocomplete({
         delay: 0,
         source: function(request, response) {

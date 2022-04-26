@@ -291,7 +291,7 @@
   </div>
 </div>
 <script type="text/javascript"><!--
-$('select[name=\'customer_group_id\']').live('change', function() {
+$('select[name=\'customer_group_id\']').on('change', function() {
 	var customer_group = [];
 	
 <?php foreach ($customer_groups as $customer_group) { ?>
@@ -440,7 +440,7 @@ function addAddress() {
 }
 //--></script> 
 <script type="text/javascript"><!--
-$('#history .pagination a').live('click', function() {
+$('#history .pagination a').on('click', function() {
 	$('#history').load(this.href);
 	
 	return false;
@@ -448,7 +448,7 @@ $('#history .pagination a').live('click', function() {
 
 $('#history').load('index.php?route=sale/customer/history&token=<?php echo $token; ?>&customer_id=<?php echo $customer_id; ?>');
 
-$('#button-history').bind('click', function() {
+$('#button-history').on('click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/customer/history&token=<?php echo $token; ?>&customer_id=<?php echo $customer_id; ?>',
 		type: 'post',
@@ -473,7 +473,7 @@ $('#button-history').bind('click', function() {
 });
 //--></script> 
 <script type="text/javascript"><!--
-$('#transaction .pagination a').live('click', function() {
+$('#transaction .pagination a').on('click', function() {
 	$('#transaction').load(this.href);
 	
 	return false;
@@ -481,7 +481,7 @@ $('#transaction .pagination a').live('click', function() {
 
 $('#transaction').load('index.php?route=sale/customer/transaction&token=<?php echo $token; ?>&customer_id=<?php echo $customer_id; ?>');
 
-$('#button-transaction').bind('click', function() {
+$('#button-transaction').on('click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/customer/transaction&token=<?php echo $token; ?>&customer_id=<?php echo $customer_id; ?>',
 		type: 'post',
@@ -506,7 +506,7 @@ $('#button-transaction').bind('click', function() {
 });
 //--></script> 
 <script type="text/javascript"><!--
-$('#reward .pagination a').live('click', function() {
+$('#reward .pagination a').on('click', function() {
 	$('#reward').load(this.href);
 	
 	return false;
