@@ -22,7 +22,7 @@ Features:
 Updates:
 ========
 
-* jQuery 3.6.0
+* jQuery 3.0.0
 * CKeditor v4.18.0
 
 To do:
