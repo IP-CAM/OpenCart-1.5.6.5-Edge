@@ -28,4 +28,5 @@ Updates:
 To do:
 ========
 
-*Fix Image Manager
+* Fix Image Manager
+* Fix Image Instert CKeditor
