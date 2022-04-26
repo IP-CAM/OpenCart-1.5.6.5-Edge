@@ -17,8 +17,6 @@
 <?php foreach ($styles as $style) { ?>
 <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
-<script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js" type="text/javascript"></script>
-
 <script type="text/javascript" src="view/javascript/jquery/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="view/javascript/jquery/ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="view/javascript/jquery/tabs.js"></script>
