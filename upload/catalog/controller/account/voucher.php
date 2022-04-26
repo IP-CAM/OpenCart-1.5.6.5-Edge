@@ -59,6 +59,8 @@ class ControllerAccountVoucher extends Controller {
 		$this->data['entry_message'] = $this->language->get('entry_message');
 		$this->data['entry_amount'] = sprintf($this->language->get('entry_amount'), $this->currency->format($this->config->get('config_voucher_min')), $this->currency->format($this->config->get('config_voucher_max')));
 
+		$this->data['help_amount'] = $this->language->get('help_amount');
+
 		$this->data['button_continue'] = $this->language->get('button_continue');
 
 		if (isset($this->error['warning'])) {
