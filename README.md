@@ -19,6 +19,12 @@ Features:
 * Full Responsive
 * Capable to work with PHP v.7.4.28
 
+Updates:
+========
+
+* jQuery 3.6.0
+* CKeditor v4.18.0
+
 To do:
 ========
 
