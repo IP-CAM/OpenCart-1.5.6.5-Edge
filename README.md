@@ -18,3 +18,8 @@ Features:
 * Product Option Checked
 * Full Responsive
 * Capable to work with PHP v.7.4.28
+
+To do:
+========
+
+*Fix Image Manager
