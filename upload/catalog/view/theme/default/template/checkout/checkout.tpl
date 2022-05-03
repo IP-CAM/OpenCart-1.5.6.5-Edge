@@ -750,4 +750,5 @@ $(document).delegate('#button-payment-method', 'click', function() {
     });
 });
 //--></script>
+<script>$('#accordion').on('shown.bs.collapse', function (e) { var offset = $(this).find('.panel-collapse.in').offset(); if (offset) {$('html,body').animate({scrollTop: $('.panel-collapse.in').offset().top - 55}, 0);}});</script>
 <?php echo $footer; ?>
